@@ -22,14 +22,19 @@ export default function CheckoutPage() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { date, time } = (location.state || {}) as { date: string; time: string };
+    const { date, time, quantity: initialQuantity = 1 } = (location.state || {}) as { 
+    date: string; 
+    time: string; 
+    quantity?: number 
+  };
+
 
   const [adventure, setAdventure] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [promoCode, setPromoCode] = useState("");
   const [promoDetails, setPromoDetails] = useState<PromoResponse["promo"] | null>(null);
   const [error, setError] = useState("");
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(initialQuantity); // Use the passed quantity
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [agreeToTerms, setAgreeToTerms] = useState(false);
