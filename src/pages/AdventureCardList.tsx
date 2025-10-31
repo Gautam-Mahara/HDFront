@@ -34,8 +34,8 @@ const AdventureCardList: React.FC = () => {
         if (!response.ok) throw new Error("Failed to fetch search results");
         const data = await response.json();
         setFilteredAdventures(data);
-      } catch (err: any) {
-        setSearchError(err.message);
+      } catch (err) {
+        setSearchError(err instanceof Error ? err.message : String(err));
       } finally {
         setSearchLoading(false);
       }

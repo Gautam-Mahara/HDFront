@@ -100,9 +100,9 @@ export default function CheckoutPage() {
       } else {
         throw new Error(data.message || "Booking failed - no booking number received");
       }
-    } catch (err: any) {
+    } catch (err) {
       console.error("Booking error:", err);
-      setError(err.message || "Failed to complete booking. Please try again.");
+        setError(err instanceof Error ? err.message : String(err));
     } finally {
       setBookingLoading(false);
     }

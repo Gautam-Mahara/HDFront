@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 
 export default function BookingSuccess() {
@@ -7,38 +7,38 @@ export default function BookingSuccess() {
     location.state || {};
   const [searchQuery, setSearchQuery] = useState("");
 
-  const [searchResults, setSearchResults] = useState([]);
-  const [searchLoading, setSearchLoading] = useState(false);
-  const [searchError, setSearchError] = useState("");
+  // const [searchResults, setSearchResults] = useState([]);
+  // const [searchLoading, setSearchLoading] = useState(false);
+  // const [searchError, setSearchError] = useState("");
 
-  // 🧭 Handle search (same as AdventureCardList logic)
-  useEffect(() => {
-    const fetchResults = async () => {
-      if (!searchQuery.trim()) {
-        setSearchResults([]);
-        return;
-      }
-      setSearchLoading(true);
-      setSearchError("");
-      try {
-        const response = await fetch(
-          `http://localhost:5000/api/adventures/search?query=${encodeURIComponent(
-            searchQuery
-          )}`
-        );
-        if (!response.ok) throw new Error("Failed to fetch search results");
-        const data = await response.json();
-        setSearchResults(data);
-      } catch (err: any) {
-        setSearchError(err.message);
-      } finally {
-        setSearchLoading(false);
-      }
-    };
+  // // 🧭 Handle search (same as AdventureCardList logic)
+  // useEffect(() => {
+  //   const fetchResults = async () => {
+  //     if (!searchQuery.trim()) {
+  //       setSearchResults([]);
+  //       return;
+  //     }
+  //     setSearchLoading(true);
+  //     setSearchError("");
+  //     try {
+  //       const response = await fetch(
+  //         `http://localhost:5000/api/adventures/search?query=${encodeURIComponent(
+  //           searchQuery
+  //         )}`
+  //       );
+  //       if (!response.ok) throw new Error("Failed to fetch search results");
+  //       const data = await response.json();
+  //       setSearchResults(data);
+  //     } catch (err) {
+  //       setSearchError(err instanceof Error ? err.message : String(err));
+  //     } finally {
+  //       setSearchLoading(false);
+  //     }
+  //   };
 
-    const debounce = setTimeout(fetchResults, 400);
-    return () => clearTimeout(debounce);
-  }, [searchQuery]);
+  //   const debounce = setTimeout(fetchResults, 400);
+  //   return () => clearTimeout(debounce);
+  // }, [searchQuery]);
 
   // 🚫 Handle missing booking data
   if (!bookingNumber) {
