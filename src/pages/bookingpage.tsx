@@ -199,7 +199,7 @@ export default function BookingPage() {
                       ))}
                     </div>
                     <p className="text-sm text-gray-500">
-                      All times are in IET (SMT + S-SD)
+                      All times are in IST
                     </p>
                   </>
                 ) : (
