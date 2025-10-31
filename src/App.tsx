@@ -1,7 +1,7 @@
 import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AdventureDetailPage from "./pages/AdventureCardList";
-import BookingPage from "./pages/BookingPage";
+import BookingPage from "./pages/bookingpage";
 import CheckoutPage from "./pages/CheckoutPage"; // ✅ new import
 import BookingSuccess from "./pages/BookingSuccess"; // new import
 
