@@ -11,11 +11,11 @@ type PromoResponse = {
   };
 };
 
-type BookingResponse = {
-  success: boolean;
-  bookingNumber: string;
-  message?: string;
-};
+// type BookingResponse = {
+//   success: boolean;
+//   bookingNumber: string;
+//   message?: string;
+// };
 
 export default function CheckoutPage() {
   const { id } = useParams<{ id: string }>();
