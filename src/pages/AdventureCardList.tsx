@@ -29,7 +29,7 @@ const AdventureCardList: React.FC = () => {
       setSearchError("");
       try {
         const response = await fetch(
-          `http://localhost:5000/api/adventures/search?query=${encodeURIComponent(searchQuery)}`
+          `https://hdback.onrender.com/api/adventures/search?query=${encodeURIComponent(searchQuery)}`
         );
         if (!response.ok) throw new Error("Failed to fetch search results");
         const data = await response.json();

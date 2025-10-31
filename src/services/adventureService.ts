@@ -72,7 +72,7 @@
 // };
 import type { Adventure } from '../types/adventure';
 
-const API_BASE_URL = 'http://localhost:5000/api'; // Express backend
+const API_BASE_URL = 'https://hdback.onrender.com/api'; // Express backend
 
 export const adventureService = {
   getAdventures: async (): Promise<Adventure[]> => {

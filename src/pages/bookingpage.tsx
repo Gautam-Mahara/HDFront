@@ -18,7 +18,7 @@ export default function BookingPage() {
   useEffect(() => {
     const fetchAdventure = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/adventures/${id}`);
+        const res = await fetch(`https://hdback.onrender.com/api/adventures/${id}`);
         const data = await res.json();
         setAdventure(data);
         console.log(data);
@@ -35,7 +35,7 @@ export default function BookingPage() {
     if (!selectedDate || !selectedTime) return;
     setChecking(true);
     try {
-      const res = await fetch("http://localhost:5000/api/payment/check-availability", {
+      const res = await fetch("https://hdback.onrender.com/api/payment/check-availability", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
